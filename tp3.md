@@ -71,3 +71,5 @@ FIN
 💸 **Total à payer** : 1300€
 ```
 
+Sessions:List[(String,String)] = ("sessionId" -> List((nom, email), (nom, email)))
+
