@@ -31,7 +31,7 @@ object Program {
     //println(evenNumbers.toList)
     //val input = StdIn.readLine("Entrez quelque chose : ")
     //println(input.toInt)
-    sayHello(37,"Ihab")
+    /*sayHello(37,"Ihab")
     sayHello(33)
     addition(10,30)
 
@@ -59,7 +59,12 @@ object Program {
 
     for((key,  valeur) <- monMap) {
       println(s"Cle : $key, Valeur : $valeur")
-    }
+    }*/
+
+    /// #### POO
+    val p1 = new Person("ihab", 37)
+    p1.afficher()
+
   }
 
   def analyse(element:Any): String = {
