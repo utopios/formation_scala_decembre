@@ -29,7 +29,50 @@ object Program {
 
     //var evenNumbers = for(i <-1 to 10 if i%2 == 0) yield i
     //println(evenNumbers.toList)
-    val input = StdIn.readLine("Entrez quelque chose : ")
-    println(input.toInt)
+    //val input = StdIn.readLine("Entrez quelque chose : ")
+    //println(input.toInt)
+    sayHello(37,"Ihab")
+    sayHello(33)
+    addition(10,30)
+
+    val carre = (a:Int) => a * a
+    val doubleOfElement = (_:Int) * 2
+    println(carre(20))
+    println(doubleOfElement(20))
+
+    var element:Any = 10
+
+    println(analyse(element))
+    element = "test"
+    println(analyse(element))
+
+    var maListe = List(3,4,5, "test")
+    maListe.map(x => {
+      println(x)
+    })
+
+    var monSet = Set(1,2,2, "test", "test")
+    monSet.map(e => println(e))
+
+    var monMap = Map("cle" -> "value", "cle2" -> "value2", 34 -> true)
+    monMap.map { case (key, valeur) => println(s"Cle : $key, Valeur : $valeur") }
+
+    for((key,  valeur) <- monMap) {
+      println(s"Cle : $key, Valeur : $valeur")
+    }
   }
+
+  def analyse(element:Any): String = {
+    element match {
+      case i:Int => "Its integer"
+      case s:String => "Its String"
+      case _ => "Other type"
+    }
+  }
+
+  def sayHello(age:Int = 10, name: String = "toto"): Unit = {
+    println(s"Hello from our function to $name")
+  }
+
+  def addition(a:Int, b:Int) = a+b
 }
