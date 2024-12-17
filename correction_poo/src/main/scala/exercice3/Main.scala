@@ -2,21 +2,21 @@ package exercice3
 
 object Main {
   def main(args: Array[String]): Unit = {
-    val compte1 = new CompteCourant("CC123", 1000)
-    val compte2 = new CompteEpargne("CE456", 2000)
+    val compte1 = new CompteCourant("CC123", 1000.00)
+    val compte2 = new CompteEpargne("CE456", 2000.00)
 
     val comptes: List[CompteBancaire] = List(compte1, compte2)
 
     println("=== Opérations sur le Compte Courant ===")
     try {
-      val nouveauSolde = compte1.deposer(200)
+      val nouveauSolde = compte1.deposer(200.00)
       println(s"Nouveau solde : $nouveauSolde €")
     } catch {
       case e: MontantNegatifException => println(s"Erreur : ${e.getMessage}")
     }
 
     try {
-      val nouveauSolde = compte1.retirer(1500)
+      val nouveauSolde = compte1.retirer(1500.00)
       println(s"Nouveau solde : $nouveauSolde €")
     } catch {
       case e: MontantNegatifException => println(s"Erreur : ${e.getMessage}")
