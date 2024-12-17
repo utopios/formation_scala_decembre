@@ -1,3 +1,5 @@
+import Extension.RichInt
+
 import scala.collection.IterableOnce.iterableOnceExtensionMethods
 import scala.io.StdIn
 import scala.util.Try
@@ -98,7 +100,8 @@ object Program {
       case Left(erreur) => println(s"Erreur : $erreur")
       case Right(valeur) => println(s"Succès, le résultat est $valeur")
     }
-
+    var d = 10.doubler
+    println(d)
   }
 
   def division(a: Int, b: Int): Either[String, Int] = {
