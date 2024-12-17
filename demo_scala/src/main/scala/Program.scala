@@ -1,5 +1,6 @@
 import scala.collection.IterableOnce.iterableOnceExtensionMethods
 import scala.io.StdIn
+import scala.util.Try
 import scala.util.control.Breaks.{break, breakable}
 
 object Program {
@@ -62,9 +63,47 @@ object Program {
     }*/
 
     /// #### POO
-    val p1 = new Person("ihab", 37)
-    p1.afficher()
+    //val p1 = new Person("ihab", 37)
+    //p1.afficher()
 
+    // ### Exception
+    try {
+      val result = 10 / 0
+      println(result)
+    }catch {
+      case e: ArithmeticException => println(e.getMessage)
+    }finally {
+      println("Finally case")
+    }
+
+    // Option
+    val nom:Option[String]  = Some("Ihab")
+
+    var age:Option[Int] = None
+    if(!nom.isEmpty) {
+      println(nom.get)
+    }
+    age = Some(37)
+    if (!age.isEmpty) {
+      println(age.get)
+    }
+
+    val result2 = Try (10 / 2)
+    if(result2.isSuccess) {
+      println(result2.get)
+    }
+
+    val resultDevision = division(10,0)
+    resultDevision match {
+      case Left(erreur) => println(s"Erreur : $erreur")
+      case Right(valeur) => println(s"Succès, le résultat est $valeur")
+    }
+
+  }
+
+  def division(a: Int, b: Int): Either[String, Int] = {
+    if (b == 0) Left("Impossible de diviser par zéro")
+    else Right(a / b)
   }
 
   def analyse(element:Any): String = {
