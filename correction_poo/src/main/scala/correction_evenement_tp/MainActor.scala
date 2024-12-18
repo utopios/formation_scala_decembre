@@ -12,6 +12,15 @@ object MainActor {
         val deliveryActor = context.spawn(DeliveryActor(colisId), s"delivery-$colisId")
         deliveryActor ! LancerLivraison(colisId, produit, adresse)
         Behaviors.same
+      case SuivreColis(clientId, colisId) =>
+        println(s"Suivi demandé par le client $clientId pour le colis $colisId")
+        Behaviors.same
+      case StatutColis(colisId, etat) =>
+        println(s"Colis $colisId, nouvel état: $etat")
+        Behaviors.same
+      case CommandeEchouee(colisId, raison) =>
+        println(s"Commande $colisId échouée, raison: $raison")
+        Behaviors.same
     }
   }
 }
