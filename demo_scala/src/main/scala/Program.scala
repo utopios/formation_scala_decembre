@@ -115,6 +115,8 @@ object Program {
 
     v1.promotion(2000)
 
+    val e1:Etudiant = new Etudiant();
+
   }
 
   def division(a: Int, b: Int): Either[String, Int] = {
