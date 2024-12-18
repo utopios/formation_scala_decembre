@@ -69,7 +69,7 @@ object Program {
     //p1.afficher()
 
     // ### Exception
-    try {
+    /*try {
       val result = 10 / 0
       println(result)
     }catch {
@@ -101,7 +101,20 @@ object Program {
       case Right(valeur) => println(s"Succès, le résultat est $valeur")
     }
     var d = 10.doubler
-    println(d)
+    println(d)*/
+
+    val v1 = new Voiture(10000.00, "M1")
+    v1.observers += notificationMail
+    v1.observers += notificationSMS
+
+    v1.promotion(1000)
+
+    v1.promotion(1000)
+
+    v1.observers -= notificationSMS
+
+    v1.promotion(2000)
+
   }
 
   def division(a: Int, b: Int): Either[String, Int] = {
@@ -119,6 +132,14 @@ object Program {
 
   def sayHello(age:Int = 10, name: String = "toto"): Unit = {
     println(s"Hello from our function to $name")
+  }
+
+  def notificationMail(prix:Double) = {
+    println(s"Notification mail New Price $prix ")
+  }
+
+  def notificationSMS(prix: Double) = {
+    println(s"Notification SMS New Price $prix ")
   }
 
   def addition(a:Int, b:Int) = a+b
