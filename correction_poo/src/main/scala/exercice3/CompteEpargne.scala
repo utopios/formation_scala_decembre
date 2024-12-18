@@ -7,14 +7,14 @@ class CompteEpargne(numeroCompte: String, solde: Double) extends CompteBancaire(
     if (montant < 0) throw new MontantNegatifException("Montant négatif non autorisé")
     else if (solde - montant < 0) throw new FondsInsuffisantsException("Fonds insuffisants")
     else {
-      solde -= montant
+      //solde -= montant
       solde
     }
   }
 
   def appliquerInteret(): Option[Double] = {
     if (solde > 0) {
-      solde += solde * tauxInteret
+      //solde += solde * tauxInteret
       Some(solde)
     } else {
       None
